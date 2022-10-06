@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1665064295290" clover="3.2.0">
-  <project timestamp="1665064295290" name="All files">
-    <metrics statements="49" coveredstatements="44" conditionals="5" coveredconditionals="5" methods="5" coveredmethods="4" elements="59" coveredelements="53" complexity="0" loc="49" ncloc="49" packages="1" files="3" classes="3"/>
+<coverage generated="1665065714147" clover="3.2.0">
+  <project timestamp="1665065714147" name="All files">
+    <metrics statements="59" coveredstatements="54" conditionals="7" coveredconditionals="7" methods="6" coveredmethods="5" elements="72" coveredelements="66" complexity="0" loc="59" ncloc="59" packages="1" files="4" classes="4"/>
     <file name="getSearchObj.ts" path="F:\test-learning\jest-practice-guide\myjest-learning\src\utils\getSearchObj.ts">
       <metrics statements="31" coveredstatements="26" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="1"/>
       <line num="1" count="1" type="stmt"/>
@@ -35,6 +35,19 @@
       <line num="29" count="0" type="stmt"/>
       <line num="30" count="1" type="stmt"/>
       <line num="31" count="1" type="stmt"/>
+    </file>
+    <file name="objToSearchStr.ts" path="F:\test-learning\jest-practice-guide\myjest-learning\src\utils\objToSearchStr.ts">
+      <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <line num="1" count="1" type="cond" truecount="1" falsecount="0"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="1" type="cond" truecount="1" falsecount="0"/>
+      <line num="5" count="2" type="stmt"/>
+      <line num="6" count="2" type="stmt"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="9" count="1" type="stmt"/>
+      <line num="10" count="1" type="stmt"/>
     </file>
     <file name="storage.ts" path="F:\test-learning\jest-practice-guide\myjest-learning\src\utils\storage.ts">
       <metrics statements="13" coveredstatements="13" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
