@@ -3,6 +3,9 @@ import "jest-location-mock";
 import mockConsole from "jest-mock-console";
 mockConsole();
 
+import "@testing-library/jest-dom";
+import server from "./mockServer/server";
+
 // Object.defineProperty(globalThis, "localStorage", {
 //   value: {
 //     store: {} as Record<string, string>,
@@ -34,4 +37,16 @@ Object.defineProperty(window, "matchMedia", {
     removeEventListener: jest.fn(),
     dispatchEvent: jest.fn(),
   })),
+});
+
+beforeAll(() => {
+  server.listen();
+});
+
+afterEach(() => {
+  server.resetHandlers();
+});
+
+afterAll(() => {
+  server.close();
 });

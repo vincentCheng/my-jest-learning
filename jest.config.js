@@ -158,7 +158,7 @@ module.exports = {
   // ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
-  testRegex: ["Title.test.tsx"],
+  testRegex: ["mockHttp.test.tsx"],
 
   // This option allows the use of a custom results processor
   // testResultsProcessor: undefined,
@@ -173,7 +173,10 @@ module.exports = {
   // timers: "real",
 
   // A map from regular expressions to paths to transformers
-  // transform: undefined,
+  transform: {
+    ".+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2)$":
+      "jest-transform-stub",
+  },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
