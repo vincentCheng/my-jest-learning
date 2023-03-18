@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import Title from "components/Title";
 
 describe("Title", () => {
@@ -8,7 +8,11 @@ describe("Title", () => {
       <Title type="large" title="大字" />
     );
     // expect(baseElement).toMatchSnapshot();
-    expect(getByText("大字")).toMatchSnapshot();
+    expect(screen.getByText("大字")).toMatchInlineSnapshot(`
+      <div>
+        大字
+      </div>
+    `);
   });
 
   it("可以正确渲染小字", () => {
@@ -16,7 +20,11 @@ describe("Title", () => {
       <Title type="small" title="小字" />
     );
     // expect(baseElement).toMatchSnapshot();
-    const content = getByText("小字");
-    expect(content).toMatchSnapshot();
+    const content = screen.getByText("小字");
+    expect(content).toMatchInlineSnapshot(`
+      <div>
+        小字
+      </div>
+    `);
   });
 });

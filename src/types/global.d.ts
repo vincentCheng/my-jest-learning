@@ -1,7 +1,7 @@
 declare namespace globalThis {
-  var jsdom: any;
+  var jsdom: unknown;
 }
 declare module "*.less" {
-  const content: any;
+  const content: unknown;
   export default content;
 }

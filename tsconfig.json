@@ -5,6 +5,8 @@
     "module": "commonjs",
     "baseUrl": "./",
     "paths": {
+      "tests/*": ["__tests__/*"],
+      "src/*": ["src/*"],
       "utils/*": ["src/utils/*"],
       "apis/*": ["src/apis/*"],
       "hooks/*": ["src/hooks/*"],

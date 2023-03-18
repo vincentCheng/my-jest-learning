@@ -1,13 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "antd";
 import Title from "components/Title";
 import AuthButton from "components/AuthButton";
 import User from "components/User";
 
 const App = () => {
+  const [fullName, setFullName] = useState("");
   return (
     <div>
-      <h1>Hello</h1>
+      <p>learn react</p>
+      <input
+        onChange={(e) => {
+          setFullName(e.target.value);
+        }}
+        placeholder="Type your name"
+      />
+      <p>My name is</p>
+      <p>{fullName}</p>
+    </div>
+  );
+};
+
+export default App;
+
+/* <h1>Hello</h1>
       <Button>点我</Button>
       <section>
         <Title type="small" title="小字" />
@@ -18,9 +34,4 @@ const App = () => {
       </section>
       <section>
         <User />
-      </section>
-    </div>
-  );
-};
-
-export default App;
+      </section> */

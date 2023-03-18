@@ -1,10 +1,16 @@
-# my-jest-learning
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+// import App from "src/App";
+import App from "../../src/App";
 
-自己敲《jest 实战指南》
+test("should render learn react", () => {
+  render(<App />);
 
-### userEvent 的写法已经更改
+  const linkElement = screen.getByText(/learn react/i);
 
-```js
+  expect(linkElement).toBeInTheDocument();
+});
 
 test("should show full name when type", async () => {
   const name = "John Doe";
@@ -21,4 +27,3 @@ test("should show full name when type", async () => {
 
   expect(screen.getByText(name)).toBeInTheDocument();
 });
-```
