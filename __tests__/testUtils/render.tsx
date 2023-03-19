@@ -9,7 +9,16 @@ interface CustomRenderOptions extends RenderOptions {
   store?: ReturnType<typeof configureStore>;
 }
 
-const render = (ui: React.ReactElement, options: CustomRenderOptions) => {
+/**
+ * 带上 redux
+ * @param ui
+ * @param options
+ * @returns
+ */
+const renderWithRedux = (
+  ui: React.ReactElement,
+  options: CustomRenderOptions
+) => {
   // 获取自定义的 options，options 里带有 store 内容
   const {
     preloadedState = {},
@@ -27,4 +36,4 @@ const render = (ui: React.ReactElement, options: CustomRenderOptions) => {
   return rtlRender(ui, { wrapper, ...renderOptions });
 };
 
-export default render;
+export default renderWithRedux;

@@ -1,7 +1,7 @@
 import React from "react";
 import server from "tests/mockServer/server";
 import { rest } from "msw";
-import render from "tests/testUtils/render";
+import renderWithRedux from "tests/testUtils/render";
 import { fireEvent, screen } from "@testing-library/react";
 import User from "components/User";
 
@@ -25,7 +25,7 @@ describe("User", () => {
   it("点击可以正确获取用户列表", async () => {
     setupHttp("Mary", 10);
 
-    render(<User />, {
+    renderWithRedux(<User />, {
       preloadedState: {
         user: {
           id: "",
