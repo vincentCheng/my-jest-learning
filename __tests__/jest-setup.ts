@@ -5,6 +5,7 @@ mockConsole();
 
 import "@testing-library/jest-dom";
 import server from "./mockServer/server";
+const { Crypto } = require("@peculiar/webcrypto");
 
 // Object.defineProperty(globalThis, "localStorage", {
 //   value: {
@@ -50,3 +51,5 @@ afterEach(() => {
 afterAll(() => {
   server.close();
 });
+
+global.crypto = new Crypto();

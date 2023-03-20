@@ -212,3 +212,18 @@ git@github.com:vincentCheng/my-jest-learning.git
 网上的配置真的很莫名其妙，而且还没什么作用。
 
 # 第 2.2 章 - 前端 UI 测试实战：如何测试表单？TodoList 示例
+
+- 参考文献：https://juejin.cn/post/7137063260120940551
+
+  - 需要使用 PropsWithChildren
+
+```js
+type PropsListUnit = PropsWithChildren<{ list: Array<JSX.Element> }>;
+```
+
+- 这里要给 list 的 key 一个 uuid，但是 jest@27 中的 jsdom 就是不支持。需要在 jest-setup.ts 中添加
+
+```js
+const { Crypto } = require("@peculiar/webcrypto");
+global.crypto = new Crypto();
+```

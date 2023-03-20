@@ -3,6 +3,7 @@ import { Button } from "antd";
 import Title from "components/Title";
 import AuthButton from "components/AuthButton";
 import User from "components/User";
+import Index from "components/TodoList";
 
 const App = () => {
   const [fullName, setFullName] = useState("");
@@ -17,6 +18,7 @@ const App = () => {
       />
       <p>My name is</p>
       <p>{fullName}</p>
+      <Index />
     </div>
   );
 };
