@@ -1,3 +1,5 @@
+# [参考文献 0：](https://github.com/haixiangyan/jest-tutorial)
+
 # [参考文献 1：](https://www.bilibili.com/video/BV1Ad4y1C7vY/?spm_id_from=333.788&vd_source=59fab4ae7f7b6462cea577f55587fe78)
 
 # 第 0.0 章-为什么要做单元测试？
@@ -227,3 +229,36 @@ type PropsListUnit = PropsWithChildren<{ list: Array<JSX.Element> }>;
 const { Crypto } = require("@peculiar/webcrypto");
 global.crypto = new Crypto();
 ```
+
+### userEvent 的写法已经更改
+
+```js
+
+test("should show full name when type", async () => {
+  const name = "John Doe";
+  const user = userEvent.setup();
+
+  render(<App />);
+
+  const inputElement: HTMLInputElement = screen.queryByPlaceholderText(
+    "Type your name"
+  ) as HTMLInputElement;
+
+  // 2023年3月18日18:56:18 已经修改成这样了。
+  await user.type(inputElement, name);
+
+  expect(screen.getByText(name)).toBeInTheDocument();
+});
+```
+
+### 输入完成之后按下回车键
+
+```js
+// 输入完成之后按下回车键
+await user.type(inputElement, "{enter}");
+await user.type(inputElement, "input some information!{enter}");
+```
+
+- 在 jest 中，`{enter}`是通识，这点要记住。
+
+# 第 2.3 章 - 实践进阶：如何测试异步代码？API Mock 最佳实践 MSW
