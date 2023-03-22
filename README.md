@@ -22,3 +22,13 @@ test("should show full name when type", async () => {
   expect(screen.getByText(name)).toBeInTheDocument();
 });
 ```
+
+### 输入完成之后按下回车键
+
+```js
+// 输入完成之后按下回车键
+await user.type(inputElement, "{enter}");
+await user.type(inputElement, "input some information!{enter}");
+```
+
+- 在 jest 中，`{enter}`是通识，这点要记住。

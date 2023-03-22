@@ -9,8 +9,6 @@ import React, {
 import ListForm from "./ListForm";
 import ListFormItemType from "./types";
 
-// import crypto from "crypto";
-
 // 简单的todo列表组件
 const Index: FC = () => {
   const [listItem, setListItem] = useState<string>("");
@@ -30,8 +28,6 @@ const Index: FC = () => {
   ): void {
     event.preventDefault();
 
-    // toggleTodoNew("1");
-
     if (listItem.length <= 0) {
       return;
     }
@@ -47,9 +43,8 @@ const Index: FC = () => {
       removeTodo,
     });
 
-    console.log("submit list", tempList);
-
     setList(tempList);
+    setListItem("");
   }
 
   function handleInputChange(event: ChangeEvent<HTMLInputElement>): void {
@@ -60,9 +55,6 @@ const Index: FC = () => {
     if ("" === keyOfItemWhichChanged) {
       return;
     }
-
-    console.log("before list", list);
-    console.log("changed key", keyOfItemWhichChanged);
 
     const result = list.map((e) => {
       const { keyOfItem, isCompleted } = e;

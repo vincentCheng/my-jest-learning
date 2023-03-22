@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import ListFormItemType from "./types";
 
-enum Status {
+export enum Status {
   COMPLETED = "Completed",
   WORING = "Woring",
 }
 
 export default function Item(props: ListFormItemType) {
   const { keyOfItem, isCompleted, text, toggleTodo, removeTodo } = props;
-  const [status, setStatus] = useState<Status>(Status.COMPLETED);
+  const [status, setStatus] = useState<Status>(Status.WORING);
 
   useEffect(() => {
     setStatus(isCompleted ? Status.COMPLETED : Status.WORING);
