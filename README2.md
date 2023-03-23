@@ -262,3 +262,10 @@ await user.type(inputElement, "input some information!{enter}");
 - 在 jest 中，`{enter}`是通识，这点要记住。
 
 # 第 2.3 章 - 实践进阶：如何测试异步代码？API Mock 最佳实践 MSW
+
+- mock 异步请求有三个地方
+  - 异步请求函数使用之前
+  - 异步请求函数使用之后，mock 结果
+  - 浏览器层级 mock 结果，这样对层级的影响最小。
+
+## MSW(mock service worker) 浏览器层级 mock 异步请求。

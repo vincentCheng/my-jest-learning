@@ -5,7 +5,8 @@ const handlers = [
     return res(
       ctx.status(200),
       ctx.json({
-        userType: "user",
+        // userType: "user",
+        results: [{ name: { title: "Mr", first: "Oskari", last: "Wirtanen" } }],
       })
     );
   }),

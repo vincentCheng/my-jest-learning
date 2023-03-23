@@ -27,3 +27,12 @@ test("should show full name when type", async () => {
 
   expect(screen.getByText(name)).toBeInTheDocument();
 });
+
+test("should display name from api directly", async () => {
+  render(<App />);
+
+  const text = await screen.findByText(/Oskari Wirtanen/gi);
+  // const text = await screen.findByText(/Oskari/gi);
+
+  expect(text).toBeInTheDocument();
+});

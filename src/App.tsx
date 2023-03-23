@@ -1,12 +1,23 @@
-import React, { useState } from "react";
-import { Button } from "antd";
-import Title from "components/Title";
-import AuthButton from "components/AuthButton";
-import User from "components/User";
+import React, { useState, useEffect } from "react";
 import Index from "components/TodoList";
+import axios from "axios";
+const url = "https://mysite.com/api/role";
 
 const App = () => {
   const [fullName, setFullName] = useState("");
+
+  useEffect(() => {
+    axios
+      .get(url)
+      .then(({ data }) => {
+        const { first, last } = data.results[0].name;
+        setFullName(`${first} ${last}`);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
+
   return (
     <div>
       <p>learn react</p>
@@ -24,16 +35,3 @@ const App = () => {
 };
 
 export default App;
-
-/* <h1>Hello</h1>
-      <Button>点我</Button>
-      <section>
-        <Title type="small" title="小字" />
-        <Title type="large" title="大字" />
-      </section>
-      <section>
-        <AuthButton>登录</AuthButton>
-      </section>
-      <section>
-        <User />
-      </section> */
