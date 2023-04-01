@@ -23,6 +23,7 @@ module.exports = {
   ],
   rules: {
     // 关闭规则
+    "jest/expect-expect": "off",
     "@typescript-eslint/no-non-null-assertion": "off",
     "@typescript-eslint/no-non-explicit-any": "off",
     "no-var": "off",

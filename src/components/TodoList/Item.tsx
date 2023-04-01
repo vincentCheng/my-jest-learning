@@ -1,9 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import ListFormItemType from "./types";
+import styles from "./item.module.less";
+// import "./item.module.less";
 
 export enum Status {
   COMPLETED = "Completed",
-  WORING = "Woring",
+  WORING = "Working",
+}
+
+export enum TestIds {
+  DATA_TEST_ID_REMOVE = "todolist-remove",
+  DATA_TEST_ID_STATUS = "todolist-status",
 }
 
 export default function Item(props: ListFormItemType) {
@@ -18,16 +25,21 @@ export default function Item(props: ListFormItemType) {
     <>
       <p>{text}</p>
       <button
+        data-testid={TestIds.DATA_TEST_ID_STATUS}
+        className={styles.todo}
         type="button"
         onClick={() => {
-          console.log(`click key of item ${keyOfItem}`);
-
+          // console.log(`click key of item ${keyOfItem}`);
           toggleTodo(keyOfItem);
         }}
       >
         {status}
       </button>
-      <button type="button" onClick={removeTodo}>
+      <button
+        data-testid={TestIds.DATA_TEST_ID_REMOVE}
+        type="button"
+        onClick={removeTodo}
+      >
         <span>Remove</span>
       </button>
     </>

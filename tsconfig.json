@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "jsx": "react",
+    "jsx": "react-jsx",
     "target": "ES2019",
     "module": "commonjs",
     "baseUrl": "./",
@@ -13,10 +13,17 @@
       "store/*": ["src/store/*"],
       "components/*": ["src/components/*"]
     },
-    "types": ["jest", "@types/testing-library__jest-dom"],
+    "types": ["jest", "@types/testing-library__jest-dom", "cypress"],
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules",
+        "options": { "classnameTransform": "asIs" }
+      }
+    ],
+    "allowSyntheticDefaultImports": true
   }
 }

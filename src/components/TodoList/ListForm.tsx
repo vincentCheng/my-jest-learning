@@ -3,7 +3,7 @@ import ListFormItemType from "./types";
 import Item from "./Item";
 
 // 参考文献：https://juejin.cn/post/7137063260120940551
-type ListFormType = PropsWithChildren<{ list: ListFormItemType[] }>;
+export type ListFormType = PropsWithChildren<{ list: ListFormItemType[] }>;
 
 /**
  * 返回要使用 JSX.Element

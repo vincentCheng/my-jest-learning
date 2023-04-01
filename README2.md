@@ -261,7 +261,7 @@ await user.type(inputElement, "input some information!{enter}");
 
 - 在 jest 中，`{enter}`是通识，这点要记住。
 
-# 第 2.3 章 - 实践进阶：如何测试异步代码？API Mock 最佳实践 MSW
+# 第 2.3-2.4 章 - 实践进阶：如何测试异步代码？API Mock 最佳实践 MSW
 
 - mock 异步请求有三个地方
   - 异步请求函数使用之前
@@ -269,3 +269,91 @@ await user.type(inputElement, "input some information!{enter}");
   - 浏览器层级 mock 结果，这样对层级的影响最小。
 
 ## MSW(mock service worker) 浏览器层级 mock 异步请求。
+
+# 第 2.5 章 - Cypress 组件级集成测试，可视化操作组件
+
+- 基于浏览器的 e2e 框架，组件集成测试，跑在真实的浏览器当中。
+- 安装包：
+
+```shell
+npm install -D cypress @cypress/react @cypress/webpack-dev-server
+```
+
+## 这里添加了@babel/plugin-transform-runtime。这样就不需要重复引用
+
+`import React from "react";`
+
+- 同时在 tsconfig.json 中添加 "allowSyntheticDefaultImports": true 这样就不会报错。
+- 发现引入 typescript-plugin-css-modules 之后，生成的类名是随机的。
+
+## 由于添加了插件。方便引入样式，但是这样生成的类名不是原来的类名，需要使用以下设置
+
+```js
+      {
+        test: /\.less$/i,
+        use: [
+          { loader: "style-loader" },
+          {
+            loader: "css-loader",
+            options: {
+              modules: {
+                mode: (resourcePath) => {
+                  if (/pure.css$/i.test(resourcePath)) {
+                    return "pure";
+                  }
+                  if (/global.css$/i.test(resourcePath)) {
+                    return "global";
+                  }
+                  return "local";
+                },
+                // 注意这里。这样设置就无法更改。
+                // 如果是调试模式就用这个设置，如果是生产模式就别用。
+                localIdentName: "[local]",
+              },
+            },
+          },
+          { loader: "less-loader" },
+        ],
+      },
+```
+
+## 自定义 hook，实时获取 window 的大小等。
+
+```js
+interface WindowSize {
+  width: number;
+  height: number;
+}
+
+const useWindowSize = () => {
+  const [size, setSize] =
+    useState <
+    WindowSize >
+    {
+      width: document.documentElement.clientWidth,
+      height: document.documentElement.clientHeight,
+    };
+
+  // dom更新之前同步执行操作，对DOM元素进行精准的测量。
+  useLayoutEffect(() => {
+    const handleResize = () => {
+      setSize({
+        width: document.documentElement.clientWidth,
+        height: document.documentElement.clientHeight,
+      });
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  return size;
+};
+```
+
+# 这里安装了 cypress 和 jest，类型定义冲突。
+
+- jest 文件里的 expect 这个函数的类型定义居然跳转到 cypress 中，而且还不知道怎么改。
