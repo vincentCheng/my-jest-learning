@@ -4,6 +4,7 @@ module.exports = {
     browser: true,
     node: true,
     "jest/globals": true,
+    "cypress/globals": true,
   },
   // 开启插件
   plugins: [],
@@ -39,5 +40,7 @@ module.exports = {
     "jest/no-disabled-tests": "warn",
     "jest/prefer-to-have-length": "warn",
     "testing-library/no-debugging-utils": "warn",
+    "@typescript-eslint/no-namespace": "off",
+    "no-undef": "off",
   },
 };

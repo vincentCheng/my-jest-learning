@@ -68,22 +68,17 @@ module.exports = {
   // maxWorkers: "50%",
 
   // An array of directory names to be searched recursively up from the requiring module's location
-  moduleDirectories: ["node_modules", "src", "__test__"],
+  moduleDirectories: ["node_modules", "src"],
 
   // An array of file extensions your modules use
-  // moduleFileExtensions: [
-  //   "js",
-  //   "jsx",
-  //   "ts",
-  //   "tsx",
-  //   "json",
-  //   "node"
-  // ],
+  // moduleFileExtensions: ["js", "jsx", "ts", "tsx"],
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
   // moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths),
   // moduleNameMapper: {
-  //   "^uuid$": require.resolve("uuid"),
+  // "^uuid$": require.resolve("uuid"),
+  // "^@/(.*)$": "<rootDir>/src/$1",
+  // "components(.*)$": "<rootDir>/src/components/$1",
   // },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader

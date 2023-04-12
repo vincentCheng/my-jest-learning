@@ -357,3 +357,26 @@ const useWindowSize = () => {
 # 这里安装了 cypress 和 jest，类型定义冲突。
 
 - jest 文件里的 expect 这个函数的类型定义居然跳转到 cypress 中，而且还不知道怎么改。
+
+### 测试 redux 的时候，要尽量保证别互相影响。每次测试都生成一个新的 store。
+
+## eslint 和 jest
+
+- 安装插件 `eslint-plugin-jest`
+- 在.eslintrc.js 中添加代码：
+
+```js
+module.exports = {
+  root: true,
+  env: {
+    browser: true,
+    node: true,
+    // 这里开启
+    "jest/globals": true,
+  },
+  // 开启插件
+  plugins: [],
+  extends: [],
+  rules: {},
+};
+```

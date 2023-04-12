@@ -1,6 +1,7 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import ListFormItemType from "./types";
-import styles from "./item.module.less";
+// import styles from "./item.module.less";
 // import "./item.module.less";
 
 export enum Status {
@@ -26,7 +27,7 @@ export default function Item(props: ListFormItemType) {
       <p>{text}</p>
       <button
         data-testid={TestIds.DATA_TEST_ID_STATUS}
-        className={styles.todo}
+        // className={styles.todo}
         type="button"
         onClick={() => {
           // console.log(`click key of item ${keyOfItem}`);

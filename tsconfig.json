@@ -3,15 +3,14 @@
     "jsx": "react-jsx",
     "target": "ES2019",
     "module": "commonjs",
-    "baseUrl": "./",
+    "baseUrl": "src",
     "paths": {
-      "tests/*": ["__tests__/*"],
-      "src/*": ["src/*"],
-      "utils/*": ["src/utils/*"],
-      "apis/*": ["src/apis/*"],
-      "hooks/*": ["src/hooks/*"],
-      "store/*": ["src/store/*"],
-      "components/*": ["src/components/*"]
+      "@/utils/*": ["utils/*"],
+      "@/apis/*": ["apis/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/store/*": ["store/*"],
+      "@/components/*": ["components/*"],
+      "@/tests/*": ["../__tests__/*"]
     },
     "types": ["jest", "@types/testing-library__jest-dom", "cypress"],
     "esModuleInterop": true,
@@ -25,5 +24,12 @@
       }
     ],
     "allowSyntheticDefaultImports": true
-  }
+  },
+  "include": [
+    "cypress/support/component.ts",
+    "/node_modules/cypress",
+    "cypress/**/*.tsx",
+    "cypress/**/*.js"
+  ],
+  "exclude": ["node_modules"]
 }
